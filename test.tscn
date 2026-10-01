@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bqc8lkunq1keq" path="res://character_body_2d.tscn" id="1_37kl0"]
 [ext_resource type="Texture2D" uid="uid://dk6x0b3628xdh" path="res://assets/charactersprites/burst3.png" id="2_8uh7m"]
 [ext_resource type="Script" uid="uid://ddpatcu138e4h" path="res://animated_sprite_2d.gd" id="3_6uqi0"]
+[ext_resource type="Texture2D" uid="uid://hqniiwqrl3ny" path="res://assets/charactersprites/siena.png" id="4_ppyta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w30im"]
 size = Vector2(1150, 332)
@@ -78,14 +79,10 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woiyg"]
+size = Vector2(170.99998, 803)
+
 [node name="Node2D" type="Node2D" unique_id=2041550464]
-
-[node name="CharacterBody2D" parent="." unique_id=2071875782 instance=ExtResource("1_37kl0")]
-position = Vector2(486, 246)
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1956811547]
-position = Vector2(-3, 0)
-zoom = Vector2(0.75, 0.75)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=624466489]
 offset_left = -117.0
@@ -108,3 +105,40 @@ sprite_frames = SubResource("SpriteFrames_w30im")
 frame = 4
 frame_progress = 0.5897954
 script = ExtResource("3_6uqi0")
+
+[node name="Siena" type="StaticBody2D" parent="." unique_id=205651628]
+
+[node name="SienaTexture" type="Sprite2D" parent="Siena" unique_id=1740764981]
+position = Vector2(1124, 291.75)
+scale = Vector2(1, 1.7258065)
+texture = ExtResource("4_ppyta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Siena" unique_id=1553917293]
+position = Vector2(1124.5, 291.5)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_woiyg")
+
+[node name="Siena2" type="StaticBody2D" parent="." unique_id=798363079]
+position = Vector2(1612, -25)
+rotation = 4.712389
+
+[node name="SienaTexture" type="Sprite2D" parent="Siena2" unique_id=2109363886]
+scale = Vector2(1, 1.7258065)
+texture = ExtResource("4_ppyta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Siena2" unique_id=417673578]
+rotation = -0.0021699786
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_woiyg")
+
+[node name="CharacterBody2D" parent="." unique_id=2071875782 instance=ExtResource("1_37kl0")]
+position = Vector2(486, 246)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1956811547]
+position = Vector2(-3, 0)
+zoom = Vector2(0.75, 0.75)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Camera2D" unique_id=1299119963]
+modulate = Color(1, 1, 1, 0.16862746)
+scale = Vector2(10, 2)
+texture = ExtResource("4_ppyta")
