@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bqc8lkunq1keq"]
+
+[ext_resource type="Texture2D" uid="uid://bnsfuoykcauoi" path="res://assets/charactersprites/New Piskel.png" id="1_f50pn"]
+
+[sub_resource type="GDScript" id="GDScript_ij6vw"]
+resource_name = "move"
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"Left\", \"Right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w30im"]
+radius = 35.0
+height = 186.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2071875782]
+script = SubResource("GDScript_ij6vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1286779227]
+texture = ExtResource("1_f50pn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1860366426]
+shape = SubResource("CapsuleShape2D_w30im")
