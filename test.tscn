@@ -146,6 +146,22 @@ position = Vector2(-3.0517578e-05, 2)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_woiyg")
 
+[node name="Siena4" type="StaticBody2D" parent="." unique_id=1201151697]
+position = Vector2(1450, -825)
+rotation = 0.7853982
+
+[node name="SienaTexture" type="Sprite2D" parent="Siena4" unique_id=2109343602]
+position = Vector2(-1.9999999, 1.9999999)
+rotation = 0.7853982
+scale = Vector2(1, 1.7258065)
+texture = ExtResource("4_ppyta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Siena4" unique_id=1870831060]
+position = Vector2(-3.0517578e-05, 2)
+rotation = 0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_woiyg")
+
 [node name="CharacterBody2D" parent="." unique_id=2071875782 instance=ExtResource("1_37kl0")]
 position = Vector2(486, 246)
 
