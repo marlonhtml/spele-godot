@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bhfeih23ocdr2"]
+
+[ext_resource type="Script" uid="uid://crucf37ob60yv" path="res://scripts/main_menu.gd" id="1_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://blyle0wjon5l8" path="res://assets/charactersprites/pexels-sinful-77350165-37974523.jpg" id="2_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cne187dgnpwal" path="res://assets/charactersprites/Start_game_button.png" id="3_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://ccd4shygi8r4y" path="res://assets/charactersprites/Start_game_button_pressed.png" id="4_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://br3tapdc41bvt" path="res://assets/charactersprites/Exit_default.png" id="5_flqon"]
+[ext_resource type="Texture2D" uid="uid://dbg1t1uppkhrc" path="res://assets/charactersprites/Exit_pressed.png" id="6_rcqid"]
+[ext_resource type="Texture2D" uid="uid://clu137cg1o5we" path="res://assets/charactersprites/game_name.png" id="7_1ajci"]
+[ext_resource type="PackedScene" uid="uid://cl5kdewkmn66m" path="res://fade_transition.tscn" id="8_7b55j"]
+
+[node name="Main Menu" type="Node2D" unique_id=88945168]
+script = ExtResource("1_tbmy8")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=988060546]
+position = Vector2(1069, 639)
+scale = Vector2(0.44866666, 0.4065)
+texture = ExtResource("2_jk1qb")
+
+[node name="Button manager" type="Control" parent="." unique_id=285988949]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="TextureButton" parent="Button manager" unique_id=429899518]
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 519.0
+offset_right = 1712.0
+offset_bottom = 644.0
+offset_transform_enabled = true
+offset_transform_visual_only = false
+texture_normal = ExtResource("3_5dd4i")
+texture_hover = ExtResource("4_lgwnu")
+
+[node name="Exit" type="TextureButton" parent="Button manager" unique_id=1518554980]
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 689.0
+offset_right = 1306.0
+offset_bottom = 798.0
+offset_transform_enabled = true
+offset_transform_visual_only = false
+texture_normal = ExtResource("5_flqon")
+texture_hover = ExtResource("6_rcqid")
+
+[node name="Game name" type="TextureRect" parent="." unique_id=1424976413]
+offset_left = 492.0
+offset_top = 170.0
+offset_right = 2219.0
+offset_bottom = 339.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_1ajci")
+
+[node name="Fade_transition" parent="." unique_id=251527482 instance=ExtResource("8_7b55j")]
+visible = false
+offset_left = -38.0
+offset_top = -36.0
+offset_right = 1975.0
+offset_bottom = 1119.0
+
+[node name="Fade_timer" type="Timer" parent="Fade_transition" unique_id=1402472691]
+
+[connection signal="pressed" from="Button manager/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Button manager/Exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="Fade_transition/Fade_timer" to="." method="_on_fade_timer_timeout"]
