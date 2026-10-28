@@ -14,5 +14,7 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = direction * SPEED
+	if Input.is_action_just_pressed("Esc"):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 	move_and_slide()

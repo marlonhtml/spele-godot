@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dk6x0b3628xdh" path="res://assets/charactersprites/burst3.png" id="2_8uh7m"]
 [ext_resource type="Script" uid="uid://ddpatcu138e4h" path="res://animated_sprite_2d.gd" id="3_6uqi0"]
 [ext_resource type="Texture2D" uid="uid://hqniiwqrl3ny" path="res://assets/charactersprites/siena.png" id="4_ppyta"]
+[ext_resource type="Script" uid="uid://51vj2btegnfc" path="res://scripts/camera_script.gd" id="5_j5jx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w30im"]
 size = Vector2(1150, 332)
@@ -165,11 +166,8 @@ shape = SubResource("RectangleShape2D_woiyg")
 [node name="CharacterBody2D" parent="." unique_id=2071875782 instance=ExtResource("1_37kl0")]
 position = Vector2(486, 246)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1956811547]
-position = Vector2(-3, 0)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1956811547 node_paths=PackedStringArray("target")]
+position = Vector2(483, 246)
 zoom = Vector2(0.75, 0.75)
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Camera2D" unique_id=1299119963]
-modulate = Color(1, 1, 1, 0.16862746)
-scale = Vector2(10, 2)
-texture = ExtResource("4_ppyta")
+script = ExtResource("5_j5jx5")
+target = NodePath("../CharacterBody2D")
