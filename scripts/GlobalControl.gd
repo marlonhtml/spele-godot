@@ -2,8 +2,6 @@ extends Node
 
 var player_body = null
 
-
-
 func change_controller(body):
 	if player_body != null:
 		player_body.controller = 0

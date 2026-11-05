@@ -68,6 +68,8 @@ func attack(attack_name):
 
 func _physics_process(delta: float)-> void:
 	if controller != 0: GlobalControl.get_input()
+	if Input.is_action_just_pressed("Esc"):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 	move_and_slide()
