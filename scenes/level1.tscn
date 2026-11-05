@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d0ykxbdudawga"]
 
+[ext_resource type="Script" uid="uid://xliiy3j4ssvi" path="res://scenes/level_1.gd" id="1_6sh32"]
 [ext_resource type="Texture2D" uid="uid://dk6x0b3628xdh" path="res://assets/charactersprites/burst3.png" id="1_ru4tf"]
 [ext_resource type="Script" uid="uid://ddpatcu138e4h" path="res://scripts/animated_sprite_2d.gd" id="2_ru4tf"]
 [ext_resource type="Texture2D" uid="uid://hqniiwqrl3ny" path="res://assets/charactersprites/siena.png" id="3_ejswk"]
@@ -84,6 +85,7 @@ animations = [{
 size = Vector2(170.99998, 803)
 
 [node name="Node2D" type="Node2D" unique_id=2041550464]
+script = ExtResource("1_6sh32")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=624466489]
 offset_left = -117.0
@@ -165,6 +167,9 @@ shape = SubResource("RectangleShape2D_woiyg")
 
 [node name="CharacterBody2D" parent="." unique_id=2071875782 instance=ExtResource("4_bbk5w")]
 position = Vector2(486, 246)
+head_color = Color(1, 0.7882353, 0, 1)
+left_hand_color = Color(0.23503524, 0.012000635, 0.0074607297, 1)
+leg_color = Color(0.15294118, 0.3764706, 1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1956811547 node_paths=PackedStringArray("target")]
 position = Vector2(483, 246)
