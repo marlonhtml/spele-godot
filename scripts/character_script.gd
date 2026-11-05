@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var healthbar = $CanvasLayer/Healthbar
 @export var head_color = Color(1, 1, 1)
 @export var left_arm_color = Color(1, 1, 1)
 @export var left_hand_color = Color(1, 1, 1)
@@ -20,7 +21,7 @@ extends CharacterBody2D
 var enemy_target = null
 
 #0 health, 1 energy, 2 shields
-@export var hp = 100.0
+@export var hp = 10.0
 @export var hp_max = 100.0
 
 @export var effects = {
@@ -35,6 +36,7 @@ var attacks = 0
 
 
 func _ready():
+	healthbar.init_health(hp, hp_max)
 	$UpperBody/Head.self_modulate = head_color
 	$UpperBody/RightArm.self_modulate = right_arm_color
 	$UpperBody/RightArm/RightHand.self_modulate = right_hand_color
@@ -52,13 +54,17 @@ func fatal_damage():
 
 func heal_damage(h_amount):
 	hp += h_amount
-	if hp < 0: hp = 0
 	if hp > hp_max: hp = hp_max
+
+	healthbar.health = hp
+
 	if hp <= 0: fatal_damage()
 
 func take_damage(a_amount, a_kind):
-	var layer = 0
-	hp -= max(0, (a_amount))
+	hp -= max(0, a_amount)
+
+	healthbar.health = hp
+
 	if hp <= 0: fatal_damage()
 
 func attack(attack_name):
