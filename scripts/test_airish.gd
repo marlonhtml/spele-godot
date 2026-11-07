@@ -1,5 +1,24 @@
 extends CharacterBody2D
 
+@export var controller = 0
+@onready var healthbar = $CanvasLayer/Healthbar
+
+@export var tags = ["character", "important"]
+@export var team = "player"
+
+var enemy_target = null
+
+#0 health, 1 energy, 2 shields
+@export var hp = 10.0
+@export var hp_max = 100.0
+
+@export var effects = {
+	"alive": -1.0,
+	"immobile": 0.0,
+	"attacking": 0.0,
+	"controlled": 0.0,
+	"downed": 0.0
+}
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0

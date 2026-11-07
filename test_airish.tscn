@@ -1,51 +1,48 @@
 [gd_scene format=3 uid="uid://dqqreq1pxp840"]
 
 [ext_resource type="Script" uid="uid://c08j37pmrltor" path="res://scripts/test_airish.gd" id="1_qpbtj"]
-[ext_resource type="Texture2D" uid="uid://dcwid3aesa7ig" path="res://assets/character_body_sprites/cowboy_topdown_spritesheet.png" id="1_xtyjw"]
 [ext_resource type="PackedScene" uid="uid://dq1unurut8ybx" path="res://scenes/healthbar/healthbar.tscn" id="2_eni3e"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpbtj"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(0, 320, 80, 80)
+[ext_resource type="Texture2D" uid="uid://dm61w3gbcqhsm" path="res://assets/character_body_sprites/cowboy_spritesheet_3x.png" id="2_qpbtj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urh1o"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(80, 320, 80, 80)
+atlas = ExtResource("2_qpbtj")
+region = Rect2(0, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ff1w"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(160, 320, 80, 80)
+atlas = ExtResource("2_qpbtj")
+region = Rect2(240, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ual3y"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(240, 320, 80, 80)
+atlas = ExtResource("2_qpbtj")
+region = Rect2(480, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iowty"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(320, 320, 80, 80)
+atlas = ExtResource("2_qpbtj")
+region = Rect2(720, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ialod"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(400, 320, 80, 80)
+atlas = ExtResource("2_qpbtj")
+region = Rect2(960, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iedb7"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(480, 320, 80, 80)
+atlas = ExtResource("2_qpbtj")
+region = Rect2(1200, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kcxd2"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(560, 320, 80, 80)
+atlas = ExtResource("2_qpbtj")
+region = Rect2(1440, 0, 240, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e76q7"]
-atlas = ExtResource("1_xtyjw")
-region = Rect2(640, 320, 80, 80)
+atlas = ExtResource("2_qpbtj")
+region = Rect2(1680, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7yv5"]
+atlas = ExtResource("2_qpbtj")
+region = Rect2(1920, 0, 240, 240)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r030d"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qpbtj")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_urh1o")
 }, {
@@ -69,6 +66,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e76q7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7yv5")
 }],
 "loop": 1,
 "name": &"walk_unarmed",
@@ -76,20 +76,21 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r030d"]
-radius = 8.0
+radius = 23.194826
 
 [node name="TestAirish" type="CharacterBody2D" unique_id=682131934]
-scale = Vector2(6, 6)
+scale = Vector2(2, 2)
 script = ExtResource("1_qpbtj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1041591157]
+position = Vector2(0.33333302, -0.33333325)
 sprite_frames = SubResource("SpriteFrames_r030d")
 animation = &"walk_unarmed"
 autoplay = "walk_unarmed"
-frame_progress = 0.063986205
+frame_progress = 0.15799621
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=344569750]
-position = Vector2(1, 0)
+position = Vector2(4, 1.5)
 shape = SubResource("CircleShape2D_r030d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1006509201]

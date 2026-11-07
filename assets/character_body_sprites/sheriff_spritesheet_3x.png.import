@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcwid3aesa7ig"
-path="res://.godot/imported/cowboy_topdown_spritesheet.png-afaa828966760740cfb2d5354921315f.ctex"
+uid="uid://dsdibhld7b5jx"
+path="res://.godot/imported/sheriff_spritesheet_3x.png-03d2af925b90114854a446ed7855b120.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character_body_sprites/cowboy_topdown_spritesheet.png"
-dest_files=["res://.godot/imported/cowboy_topdown_spritesheet.png-afaa828966760740cfb2d5354921315f.ctex"]
+source_file="res://assets/character_body_sprites/sheriff_spritesheet_3x.png"
+dest_files=["res://.godot/imported/sheriff_spritesheet_3x.png-03d2af925b90114854a446ed7855b120.ctex"]
 
 [params]
 
