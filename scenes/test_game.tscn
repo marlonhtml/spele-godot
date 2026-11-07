@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwxg7bi7hk5bh"]
+
+[ext_resource type="PackedScene" uid="uid://dqqreq1pxp840" path="res://test_airish.tscn" id="1_nl0sk"]
+
+[node name="testGame" type="Node2D" unique_id=568559486]
+
+[node name="TestAirish" parent="." unique_id=682131934 instance=ExtResource("1_nl0sk")]
+position = Vector2(-9, 13)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=495406607]
+position = Vector2(0, 5)
