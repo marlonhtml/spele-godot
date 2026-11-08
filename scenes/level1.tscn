@@ -2146,8 +2146,9 @@ layer_0/tile_data = PackedInt32Array(131074, 65548, 5, 196610, 65548, 5, 196611,
 [node name="TestAirish" parent="." unique_id=682131934 instance=ExtResource("7_bbk5w")]
 position = Vector2(215, 235)
 
-[node name="Camera2D" type="Camera2D" parent="TestAirish" unique_id=1956811547]
-position = Vector2(-5.9604645e-07, 0)
-scale = Vector2(0.16666667, 0.16666667)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1956811547 node_paths=PackedStringArray("target")]
+position = Vector2(215, 235)
+scale = Vector2(0.33333334, 0.33333334)
 zoom = Vector2(0.75, 0.75)
 script = ExtResource("5_conm7")
+target = NodePath("../TestAirish")

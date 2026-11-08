@@ -96,7 +96,12 @@ shape = SubResource("CircleShape2D_r030d")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1006509201]
 
 [node name="Healthbar" parent="CanvasLayer" unique_id=1918304183 instance=ExtResource("2_eni3e")]
-offset_left = -23.0
-offset_top = -32.0
-offset_right = 27.0
-offset_bottom = -27.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -260.0
+offset_top = 155.0
+offset_right = 256.0
+offset_bottom = 204.0
+grow_horizontal = 2
+size_flags_horizontal = 4
