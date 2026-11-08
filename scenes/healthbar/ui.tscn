@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://bwddwak082coq"]
+
+[ext_resource type="PackedScene" uid="uid://dq1unurut8ybx" path="res://scenes/healthbar/healthbar.tscn" id="1_6w2ot"]
+[ext_resource type="FontFile" uid="uid://4xx0hw0j4120" path="res://assets/fonts/8-bit-limit.r-brk.ttf" id="2_35oso"]
+[ext_resource type="Texture2D" uid="uid://kpdwhvlsv3js" path="res://assets/UI/HPBar(1).png" id="2_lo20r"]
+[ext_resource type="PackedScene" uid="uid://8s0drc4cwjwi" path="res://scenes/healthbar/WeaponWindow.tscn" id="4_35oso"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35oso"]
+atlas = ExtResource("2_lo20r")
+region = Rect2(0, 0, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w30im"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35oso")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gyng"]
+atlas = ExtResource("2_lo20r")
+region = Rect2(972, 0, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_peodp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gyng")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w2ot"]
+atlas = ExtResource("2_lo20r")
+region = Rect2(1944, 0, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lo20r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w2ot")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo20r"]
+atlas = ExtResource("2_lo20r")
+region = Rect2(0, 972, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35oso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo20r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_natik"]
+atlas = ExtResource("2_lo20r")
+region = Rect2(972, 2916, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuwvk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_natik")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu4s6"]
+atlas = ExtResource("2_lo20r")
+region = Rect2(972, 972, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vh6es"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu4s6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh6es"]
+atlas = ExtResource("2_lo20r")
+region = Rect2(1944, 972, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4gyng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh6es")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peodp"]
+atlas = ExtResource("2_lo20r")
+region = Rect2(1944, 1944, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13eit"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peodp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UI" type="CanvasLayer" unique_id=172532410]
+
+[node name="HealthFrame" type="AnimatedSprite2D" parent="." unique_id=991769498]
+position = Vector2(960.2, 150.40001)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_w30im")
+
+[node name="ConcentrationLevel" type="AnimatedSprite2D" parent="." unique_id=1766645850]
+modulate = Color(0.72, 0.72, 0.72, 1)
+position = Vector2(284.2, 274.40002)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_peodp")
+offset = Vector2(273, 0)
+
+[node name="ConcentrationFrame" type="AnimatedSprite2D" parent="." unique_id=1853875576]
+position = Vector2(394.2, 276.40002)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_lo20r")
+
+[node name="ConcentrationFrameBottom" type="AnimatedSprite2D" parent="." unique_id=1602181387]
+position = Vector2(394.2, 275.40002)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_35oso")
+
+[node name="ConcentrationLabel" type="Label" parent="." unique_id=801717494]
+offset_left = 298.2
+offset_top = 259.40002
+offset_right = 484.2
+offset_bottom = 292.40002
+theme_override_fonts/font = ExtResource("2_35oso")
+theme_override_font_sizes/font_size = 30
+text = "Concentration"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConcentrationCount" type="AnimatedSprite2D" parent="." unique_id=79473503]
+position = Vector2(549.2, 276.40002)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_wuwvk")
+
+[node name="ConcentrationCountLabel" type="Label" parent="." unique_id=1329667608]
+offset_left = 458.2
+offset_top = 246.40001
+offset_right = 644.2
+offset_bottom = 307.40002
+theme_override_fonts/font = ExtResource("2_35oso")
+theme_override_font_sizes/font_size = 45
+text = "95"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BravadoLevel" type="AnimatedSprite2D" parent="." unique_id=1539865678]
+modulate = Color(1, 0.8745098, 0.5411765, 1)
+position = Vector2(1410.2, 275.40002)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_peodp")
+offset = Vector2(273, 0)
+
+[node name="BravadoFrame" type="AnimatedSprite2D" parent="." unique_id=912882888]
+position = Vector2(1520.2, 275.40002)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_vh6es")
+
+[node name="BravadoFrameBottom" type="AnimatedSprite2D" parent="." unique_id=799124495]
+position = Vector2(1520.2, 272.40002)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_4gyng")
+
+[node name="BravadoCount" type="AnimatedSprite2D" parent="." unique_id=879458632]
+position = Vector2(1357.6, 272.80002)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_13eit")
+
+[node name="Bravadolabel" type="Label" parent="." unique_id=469274004]
+offset_left = 1425.2
+offset_top = 257.40002
+offset_right = 1611.2
+offset_bottom = 290.40002
+theme_override_fonts/font = ExtResource("2_35oso")
+theme_override_font_sizes/font_size = 30
+text = "Bravado"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BravadoCoutnLabel" type="Label" parent="." unique_id=170082715]
+offset_left = 1266.6001
+offset_top = 244.80003
+offset_right = 1452.6001
+offset_bottom = 302.80005
+theme_override_fonts/font = ExtResource("2_35oso")
+theme_override_font_sizes/font_size = 54
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Healthbar" parent="." unique_id=1918304183 instance=ExtResource("1_6w2ot")]
+offset_left = 854.2
+offset_top = 120.40001
+offset_right = 1127.2
+offset_bottom = 171.40001
+scale = Vector2(0.8, 1.2)
+
+[node name="LeftWeaponWindow" parent="." unique_id=345639918 instance=ExtResource("4_35oso")]
+position = Vector2(636, 900)
+
+[node name="RightWeaponWindow" parent="." unique_id=103295160 instance=ExtResource("4_35oso")]
+position = Vector2(1280, 900)

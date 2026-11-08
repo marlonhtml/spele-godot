@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dqqreq1pxp840"]
 
 [ext_resource type="Script" uid="uid://c08j37pmrltor" path="res://scripts/test_airish.gd" id="1_qpbtj"]
-[ext_resource type="PackedScene" uid="uid://dq1unurut8ybx" path="res://scenes/healthbar/healthbar.tscn" id="2_eni3e"]
 [ext_resource type="Texture2D" uid="uid://dm61w3gbcqhsm" path="res://assets/character_body_sprites/cowboy_spritesheet_3x.png" id="2_qpbtj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_urh1o"]
@@ -92,16 +91,3 @@ frame_progress = 0.15799621
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=344569750]
 position = Vector2(4, 1.5)
 shape = SubResource("CircleShape2D_r030d")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1006509201]
-
-[node name="Healthbar" parent="CanvasLayer" unique_id=1918304183 instance=ExtResource("2_eni3e")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -260.0
-offset_top = 155.0
-offset_right = 256.0
-offset_bottom = 204.0
-grow_horizontal = 2
-size_flags_horizontal = 4

@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://b1hqbgvdmucfm" path="res://upper_body.gd" id="4_qp52p"]
 [ext_resource type="Texture2D" uid="uid://tklanv452h8j" path="res://assets/character_body_sprites/Protag-7.png.png" id="5_4sjlk"]
 [ext_resource type="Texture2D" uid="uid://bync5k0hed3jd" path="res://assets/character_body_sprites/ProtagHead.png" id="6_lhvu3"]
-[ext_resource type="PackedScene" uid="uid://dq1unurut8ybx" path="res://scenes/healthbar/healthbar.tscn" id="9_6ct3r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghijl"]
 atlas = ExtResource("2_ij6vw")
@@ -285,18 +284,6 @@ sprite_frames = SubResource("SpriteFrames_skrk8")
 
 [node name="Hat" type="AnimatedSprite2D" parent="UpperBody/Head" unique_id=1084727605]
 sprite_frames = SubResource("SpriteFrames_ye16i")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1962404821]
-
-[node name="Healthbar" parent="CanvasLayer" unique_id=1918304183 instance=ExtResource("9_6ct3r")]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -260.0
-offset_top = 155.0
-offset_right = 256.0
-offset_bottom = 201.0
-grow_horizontal = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=635776741]
 shape = SubResource("CircleShape2D_r030d")

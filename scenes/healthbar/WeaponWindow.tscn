@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://8s0drc4cwjwi"]
+
+[ext_resource type="Texture2D" uid="uid://kpdwhvlsv3js" path="res://assets/UI/HPBar(1).png" id="1_u5l8y"]
+[ext_resource type="FontFile" uid="uid://4xx0hw0j4120" path="res://assets/fonts/8-bit-limit.r-brk.ttf" id="2_madeq"]
+[ext_resource type="Texture2D" uid="uid://15wyh81qjroa" path="res://assets/UI/RevolverMenuThing (5).png" id="2_t0dj3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5l8y"]
+atlas = ExtResource("1_u5l8y")
+region = Rect2(972, 1944, 972, 972)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w30im"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5l8y")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxrjr"]
+atlas = ExtResource("2_t0dj3")
+region = Rect2(192, 0, 192, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2bunp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxrjr")
+}],
+"loop": 1,
+"name": &"Revolver",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WeaponWindow" type="Node2D" unique_id=345639918]
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=264960316]
+offset_left = -180.0
+offset_top = -76.0
+offset_right = -140.0
+offset_bottom = -36.0
+scale = Vector2(9.08, 3.8800013)
+color = Color(0.45, 0.33120003, 0.252, 0.34901962)
+
+[node name="WeaponWindow" type="AnimatedSprite2D" parent="." unique_id=414692385]
+sprite_frames = SubResource("SpriteFrames_w30im")
+
+[node name="GunSprite" type="AnimatedSprite2D" parent="." unique_id=286981068]
+position = Vector2(-42, -50)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_2bunp")
+animation = &"Revolver"
+
+[node name="Name+AmmoCount" type="Label" parent="." unique_id=2070984065]
+custom_minimum_size = Vector2(365, 152)
+offset_left = -182.0
+offset_top = -78.0
+offset_right = 183.0
+offset_bottom = 74.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_madeq")
+theme_override_font_sizes/font_size = 45
+text = "Revolver
+6/22"
+horizontal_alignment = 1
+vertical_alignment = 1
