@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var controller = 0
-@onready var healthbar = $CanvasLayer/Healthbar
+@onready var healthbar = "res://scenes/healthbar/healthbar.tscn"
 
 @export var tags = ["character", "important"]
 @export var team = "player"
@@ -20,19 +20,26 @@ var enemy_target = null
 	"downed": 0.0
 }
 
-const SPEED = 300.0
+@export var speed = 300.0
 const JUMP_VELOCITY = -400.0
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	if controller != 0: GlobalControl.get_input()
+
+	look_at(get_global_mouse_position())
+
+	if velocity.length() > 10:
+		$AnimatedSprite2D.play("walk_unarmed")
+	else:
+		$AnimatedSprite2D.play("idle")
 
 	# Handle jump.
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
-	velocity = direction * SPEED
+	velocity = direction * speed
 	if Input.is_action_just_pressed("Esc"):
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 

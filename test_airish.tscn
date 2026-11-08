@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://c08j37pmrltor" path="res://scripts/test_airish.gd" id="1_qpbtj"]
 [ext_resource type="Texture2D" uid="uid://dm61w3gbcqhsm" path="res://assets/character_body_sprites/cowboy_spritesheet_3x.png" id="2_qpbtj"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eni3e"]
+atlas = ExtResource("2_qpbtj")
+region = Rect2(0, 0, 240, 240)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_urh1o"]
 atlas = ExtResource("2_qpbtj")
 region = Rect2(0, 0, 240, 240)
@@ -43,6 +47,14 @@ region = Rect2(1920, 0, 240, 240)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_eni3e")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 0.2,
 "texture": SubResource("AtlasTexture_urh1o")
 }, {
 "duration": 1.0,
@@ -85,8 +97,7 @@ script = ExtResource("1_qpbtj")
 position = Vector2(0.33333302, -0.33333325)
 sprite_frames = SubResource("SpriteFrames_r030d")
 animation = &"walk_unarmed"
-autoplay = "walk_unarmed"
-frame_progress = 0.15799621
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=344569750]
 position = Vector2(4, 1.5)

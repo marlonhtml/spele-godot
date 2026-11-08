@@ -127,6 +127,14 @@ animations = [{
 
 [node name="UI" type="CanvasLayer" unique_id=172532410]
 
+[node name="Healthbar" parent="." unique_id=1918304183 instance=ExtResource("1_6w2ot")]
+z_index = -1
+offset_left = 854.2
+offset_top = 120.40001
+offset_right = 1127.2
+offset_bottom = 171.40001
+scale = Vector2(0.8, 1.2)
+
 [node name="HealthFrame" type="AnimatedSprite2D" parent="." unique_id=991769498]
 position = Vector2(960.2, 150.40001)
 scale = Vector2(0.4, 0.4)
@@ -219,13 +227,6 @@ theme_override_font_sizes/font_size = 54
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Healthbar" parent="." unique_id=1918304183 instance=ExtResource("1_6w2ot")]
-offset_left = 854.2
-offset_top = 120.40001
-offset_right = 1127.2
-offset_bottom = 171.40001
-scale = Vector2(0.8, 1.2)
 
 [node name="LeftWeaponWindow" parent="." unique_id=345639918 instance=ExtResource("4_35oso")]
 position = Vector2(636, 900)
