@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c64nbh6u7pc7i" path="res://scenes/level_2.gd" id="1_4038r"]
 [ext_resource type="PackedScene" uid="uid://bqc8lkunq1keq" path="res://character_body_2d.tscn" id="1_if4l3"]
 [ext_resource type="Script" uid="uid://51vj2btegnfc" path="res://scripts/camera_script.gd" id="2_4038r"]
+[ext_resource type="PackedScene" uid="uid://bwddwak082coq" path="res://scenes/healthbar/ui.tscn" id="4_2k3dv"]
 
 [node name="Level2" type="Node2D" unique_id=755279376]
 script = ExtResource("1_4038r")
@@ -12,3 +13,5 @@ script = ExtResource("1_4038r")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1299359383 node_paths=PackedStringArray("target")]
 script = ExtResource("2_4038r")
 target = NodePath("../CharacterBody2D")
+
+[node name="UI" parent="Camera2D" unique_id=172532410 instance=ExtResource("4_2k3dv")]

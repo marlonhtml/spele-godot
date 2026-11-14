@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var controller = 0
-@onready var healthbar = "res://scenes/healthbar/healthbar.tscn"
+@onready var healthbar = $"../Camera2D/UI/Healthbar"
 
 @export var tags = ["character", "important"]
 @export var team = "player"
@@ -23,6 +23,10 @@ var enemy_target = null
 @export var speed = 300.0
 const JUMP_VELOCITY = -400.0
 
+func _ready() -> void:
+	await healthbar.ready
+	healthbar.init_health(hp, hp_max)
+	
 
 func _physics_process(delta: float) -> void:
 	if controller != 0: GlobalControl.get_input()

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var healthbar = $CanvasLayer/Healthbar
+@onready var healthbar = preload("res://scenes/healthbar/healthbar.tscn").instantiate()
 @export var head_color = Color(1, 1, 1)
 @export var left_arm_color = Color(1, 1, 1)
 @export var left_hand_color = Color(1, 1, 1)
@@ -36,6 +36,7 @@ var attacks = 0
 
 
 func _ready():
+	add_child(healthbar)
 	healthbar.init_health(hp, hp_max)
 	$UpperBody/Head.self_modulate = head_color
 	$UpperBody/RightArm.self_modulate = right_arm_color
