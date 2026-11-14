@@ -4,6 +4,7 @@ extends ProgressBar
 @onready var damage_bar = $Damagebar
 
 var health = 0 : set = _set_health
+var damage_tween: Tween
 
 func _set_health(new_health):
 	var prev_health = health
@@ -24,4 +25,12 @@ func init_health(_health, _max_health):
 	damage_bar.value = health
 
 func _on_timer_timeout() -> void:
-	damage_bar.value = health
+	if damage_tween:
+		damage_tween.kill()
+	damage_tween = create_tween()
+	damage_tween.tween_property(damage_bar, "value", health, 0.5)
+	damage_tween.set_trans(Tween.TRANS_QUAD)
+	damage_tween.set_ease(Tween.EASE_OUT)
+	
+func change_health(newValue):
+	health+=newValue 

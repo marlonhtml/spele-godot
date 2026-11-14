@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0ryooetdjv35" path="res://assets/TileMap/desert_props_3x.png" id="5_d3jkd"]
 [ext_resource type="PackedScene" uid="uid://dqqreq1pxp840" path="res://test_airish.tscn" id="7_bbk5w"]
 [ext_resource type="PackedScene" uid="uid://bwddwak082coq" path="res://scenes/healthbar/ui.tscn" id="8_bbk5w"]
+[ext_resource type="PackedScene" uid="uid://cbd42osv8vrtq" path="res://scenes/prop.tscn" id="9_conm7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ru4tf"]
 texture = ExtResource("2_dwgg1")
@@ -2155,3 +2156,6 @@ script = ExtResource("5_conm7")
 target = NodePath("../TestAirish")
 
 [node name="UI" parent="Camera2D" unique_id=172532410 instance=ExtResource("8_bbk5w")]
+
+[node name="Area2D" parent="." unique_id=564491628 instance=ExtResource("9_conm7")]
+position = Vector2(665, 271)

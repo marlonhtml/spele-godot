@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cbd42osv8vrtq"]
+
+[ext_resource type="Script" uid="uid://cbvp3xb0htpa" path="res://scripts/area_2d.gd" id="1_m6nas"]
+[ext_resource type="Texture2D" uid="uid://bync5k0hed3jd" path="res://assets/character_body_sprites/ProtagHead.png" id="2_m6nas"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_woiyg"]
+radius = 30.0
+height = 82.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nq6n"]
+radius = 30.0
+height = 82.0
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1343689709]
+script = ExtResource("1_m6nas")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=190277361]
+texture = ExtResource("2_m6nas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=537188760]
+position = Vector2(3, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_woiyg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=919137102]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1552584761]
+position = Vector2(3, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_2nq6n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

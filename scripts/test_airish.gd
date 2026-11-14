@@ -9,7 +9,7 @@ extends CharacterBody2D
 var enemy_target = null
 
 #0 health, 1 energy, 2 shields
-@export var hp = 10.0
+@export var hp = 40.0
 @export var hp_max = 100.0
 
 @export var effects = {
@@ -48,3 +48,8 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 	move_and_slide()
+
+func take_damage(damage:int):
+	hp -= damage
+	if hp < 0: hp = 0
+	healthbar.change_health(-damage)
