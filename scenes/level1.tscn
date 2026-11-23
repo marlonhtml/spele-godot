@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://51vj2btegnfc" path="res://scripts/camera_script.gd" id="5_conm7"]
 [ext_resource type="Texture2D" uid="uid://c0ryooetdjv35" path="res://assets/TileMap/desert_props_3x.png" id="5_d3jkd"]
 [ext_resource type="PackedScene" uid="uid://dqqreq1pxp840" path="res://test_airish.tscn" id="7_bbk5w"]
+[ext_resource type="Script" uid="uid://37j7wulgwk0h" path="res://scripts/bullet_manager.gd" id="7_u3awl"]
+[ext_resource type="PackedScene" uid="uid://dt6g03csrgfkv" path="res://scenes/bullet.tscn" id="8_2ku1j"]
 [ext_resource type="PackedScene" uid="uid://bwddwak082coq" path="res://scenes/healthbar/ui.tscn" id="8_bbk5w"]
 [ext_resource type="PackedScene" uid="uid://cbd42osv8vrtq" path="res://scenes/prop.tscn" id="9_conm7"]
 
@@ -2148,6 +2150,10 @@ layer_0/tile_data = PackedInt32Array(131074, 65548, 5, 196610, 65548, 5, 196611,
 [node name="TestAirish" parent="." unique_id=682131934 instance=ExtResource("7_bbk5w")]
 position = Vector2(215, 235)
 
+[node name="BulletManager" type="Node2D" parent="." unique_id=372696312]
+script = ExtResource("7_u3awl")
+bullet_scene = ExtResource("8_2ku1j")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1956811547 node_paths=PackedStringArray("target")]
 position = Vector2(215, 235)
 scale = Vector2(0.33333334, 0.33333334)
@@ -2159,3 +2165,6 @@ target = NodePath("../TestAirish")
 
 [node name="Area2D" parent="." unique_id=564491628 instance=ExtResource("9_conm7")]
 position = Vector2(665, 271)
+collision_mask = 30
+
+[connection signal="shoot" from="TestAirish" to="BulletManager" method="_on_test_airish_shoot"]

@@ -13,6 +13,10 @@ func change_controller(body):
 func get_input():
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")
 	player_body.velocity = input_direction * player_body.speed
+	
+	if Input.is_action_just_pressed("Esc"):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	
 
 
 
