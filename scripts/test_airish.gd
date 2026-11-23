@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal shoot(bullet_position, bullet_direction)
 var can_shoot : bool
+var current_weapon : String = "none"
 @export var controller = 0
 @onready var healthbar = $"../Camera2D/UI/Healthbar"
 
@@ -36,14 +37,24 @@ func _physics_process(delta: float) -> void:
 
 	look_at(get_global_mouse_position())
 
-	if velocity.length() > 10:
-		$AnimatedSprite2D.play("walk_unarmed")
-	else:
-		$AnimatedSprite2D.play("idle")
+	if not $AnimatedSprite2D.animation.ends_with("_shoot_animation"):
+		if velocity.length() > 10:
+			if current_weapon == "none":
+				$AnimatedSprite2D.play("walk_unarmed")
+			else:
+				$AnimatedSprite2D.play("walk_" + current_weapon)
+		else:
+			if current_weapon == "none":
+				$AnimatedSprite2D.play("idle")
+			else:
+				$AnimatedSprite2D.play("idle_" + current_weapon)
 		
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and can_shoot:
+	if Input.is_action_pressed("Shoot") and can_shoot and current_weapon != "none":
 		var dir = (get_global_mouse_position() - global_position).normalized()
 		shoot.emit(global_position, dir)
+		
+		$AnimatedSprite2D.play(current_weapon + "_shoot_animation")
+		
 		can_shoot = false
 		$ShotTimer.start()
 	# Handle jump.
@@ -52,6 +63,14 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 
 	move_and_slide()
+	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation.ends_with("_shoot_animation"):
+		if current_weapon != "none":
+			if velocity.length() > 10:
+				$AnimatedSprite2D.play("walk_" + current_weapon)
+			else:
+				$AnimatedSprite2D.play("idle_" + current_weapon)
 
 func take_damage(damage:int):
 	hp -= damage

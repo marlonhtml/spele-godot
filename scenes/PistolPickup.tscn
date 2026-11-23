@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dl14pvedtad7b"]
+
+[ext_resource type="Script" uid="uid://404a3ae5wupr" path="res://scripts/pistol_pickup.gd" id="1_e2ubo"]
+[ext_resource type="Texture2D" uid="uid://ctl2bumf65w58" path="res://assets/weapon_sprites/pistol.png" id="2_1ap3u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65yso"]
+size = Vector2(215, 150)
+
+[node name="PistolPickup" type="Area2D" unique_id=1022088612]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource("1_e2ubo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1342034292]
+texture = ExtResource("2_1ap3u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=552946696]
+position = Vector2(-2.5, 12)
+shape = SubResource("RectangleShape2D_65yso")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
