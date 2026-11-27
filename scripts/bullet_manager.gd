@@ -8,5 +8,7 @@ func _ready() -> void:
 func _on_player_shoot(bullet_position, bullet_direction):
 	var bullet = bullet_scene.instantiate()
 	bullet.direction = bullet_direction
-	bullet.global_position = bullet_position
+	bullet.team = "player"
+	
 	add_child(bullet)
+	bullet.global_position = bullet_position

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal shoot(bullet_position, bullet_direction)
 var can_shoot : bool
+var is_dead : bool
 var current_weapon : String = "none"
 @export var controller = 0
 @onready var healthbar = $"../Camera2D/UI/Healthbar"
@@ -20,11 +21,21 @@ var enemy_target = null
 	"immobile": 0.0,
 	"attacking": 0.0,
 	"controlled": 0.0,
-	"downed": 0.0
+	"downed": 0.0	
 }
 
 @export var speed = 300.0
 const JUMP_VELOCITY = -400.0
+
+func die() -> void:
+	is_dead = true
+	velocity = Vector2.ZERO
+	can_shoot = false
+
+	if current_weapon == "none":
+		$AnimatedSprite2D.play("death_unarmed")
+	else:
+		$AnimatedSprite2D.play("death_" + current_weapon)
 
 func _ready() -> void:
 	await healthbar.ready
@@ -33,6 +44,9 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+		
 	if controller != 0: GlobalControl.get_input()
 
 	look_at(get_global_mouse_position())
@@ -65,6 +79,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation.begins_with("death_"):
+		var game_over = preload("res://scenes/game_over.tscn").instantiate()
+		get_tree().current_scene.add_child(game_over)
+		get_tree().paused = true
+		return
 	if $AnimatedSprite2D.animation.ends_with("_shoot_animation"):
 		if current_weapon != "none":
 			if velocity.length() > 10:
@@ -73,9 +92,14 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 				$AnimatedSprite2D.play("idle_" + current_weapon)
 
 func take_damage(damage:int):
-	hp -= damage
-	if hp < 0: hp = 0
+	if is_dead:
+		return
+		
+	hp = clamp(hp - damage, 0, hp_max)
 	healthbar.change_health(-damage)
+	
+	if hp == 0:
+		die()
 
 
 func _on_shot_timer_timeout() -> void:
